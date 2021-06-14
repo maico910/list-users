@@ -9,6 +9,18 @@
           <button type="submit">Adicionar</button>
         </form>
       </section>
+
+      <section>
+        <h5 class="title">Lista de usuários</h5>
+
+        <ul>
+          <li v-for="user in users" :key="user.id">
+            <p>{{ user.email }}</p>
+            <small>{{ user.email }}</small>
+            <a @click="deleteUser(user.id)" class="destroy"></a>
+          </li>
+        </ul>
+      </section>
     </div>
   </div>
 </template>
