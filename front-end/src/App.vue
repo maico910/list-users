@@ -69,6 +69,15 @@ export default defineComponent({
       }
     },
 
+    async deleteUser(id: string) {
+      try {
+        let { data } = await axios.delete(`/users/${id}`)
+
+        this.users = this.users.filter((user) => user.id !== id)
+      } catch (error) {
+        console.warn(error)
+      }
+    },
   },
 })
 </script>
