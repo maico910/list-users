@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --respawn --clear --quiet ./src/server.ts"
+    "serve": "ts-node-dev --respawn --clear --quiet ./src/server.ts"
   },
   "keywords": [],
   "author": "",
