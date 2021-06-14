@@ -4,15 +4,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import { defineComponent } from 'vue'
+import axios from '@/utils/axios'
+import { User } from '@/models/User'
 
 export default defineComponent({
-  name: "App",
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      users: [] as User[],
+    }
   },
-});
+
+  created() {
+    this.fetchUsers()
+  },
+
+  methods: {
+    async fetchUsers() {
+      try {
+        const { data } = await axios.get('/users')
+        this.users = data
+      } catch (error) {
+        console.warn(error)
+      }
+    },
+  },
+})
 </script>
 
 <style>
